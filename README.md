@@ -1,1 +1,1 @@
-# Quiz(Projeto destinado a discipliuna de Pgweb...)
+# Quiz(Projeto destinado a disciplina de Pgweb...)
