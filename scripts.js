@@ -102,7 +102,7 @@ const questions = [
         },
         {
             "answer" : "Devem começar com um número",
-            "correct" : true
+            "correct" : false
         },
         {
             "answer" : "Devem começar com apenas numero",
@@ -110,7 +110,7 @@ const questions = [
         },
         {   
             "answer" : "Devem começãr com uma letra ou um sublinhado (_)",
-            "correct" : false
+            "correct" : true
 
         },
     ]
