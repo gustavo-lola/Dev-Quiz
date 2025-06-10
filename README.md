@@ -10,7 +10,7 @@ Um Quiz basico destinado ao aprendizado de JS e teste de conhecimento.
 
 ## 🖥️ Visualize
 
-Acesse : [https://gustavohenriqueew.github.io/Quiz/]
+Acesse : [https://gustavo-lola.github.io/Quiz/]
 
 
 ```bash
