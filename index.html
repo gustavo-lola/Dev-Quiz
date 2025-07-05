@@ -4,41 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevQuiz - Teste seus conhecimentos</title>
-    <!-- CSS personalizado -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome para ícones -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- CABEÇALHO FIXO -->
+    <!-- CABEÇALHO -->
     <header class="header" id="header">
         <div class="container">
-            <!-- Wrapper da navegação -->
             <div class="nav-wrapper">
-                <!-- Logo do site -->
                 <div class="logo">
                     <i class="fas fa-code"></i>
                     <span>DevQuiz</span>
                 </div>
                 
-                <!-- Navegação desktop -->
                 <nav class="nav-desktop">
                     <a href="#quiz">Quiz</a>
                     <a href="#tools">Ferramentas</a>
                     <a href="#forms">Contato</a>
-                    <!-- Botão para alternar tema escuro/claro -->
                     <button class="theme-toggle" id="themeToggle">
                         <i class="fas fa-moon"></i>
                     </button>
                 </nav>
                 
-                <!-- Botão do menu mobile -->
                 <button class="menu-toggle" id="menuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             
-            <!-- Navegação mobile (oculta por padrão) -->
             <nav class="nav-mobile" id="navMobile">
                 <a href="#quiz">Quiz</a>
                 <a href="#tools">Ferramentas</a>
@@ -47,19 +39,16 @@
         </div>
     </header>
 
-    <!-- SEÇÃO HERO (PRINCIPAL) -->
+    <!-- SEÇÃO HERO -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <!-- Título principal -->
                 <h1>Dev<span class="highlight">Quiz</span></h1>
-                <!-- Subtítulo com animação de digitação -->
                 <p class="hero-subtitle">
                     <span id="typedText"></span>
                     <span class="cursor">|</span>
                 </p>
                 
-                <!-- Estatísticas integradas no hero -->
                 <div class="hero-stats">
                     <div class="stat-item">
                         <div class="stat-number" data-target="10000">0</div>
@@ -75,7 +64,6 @@
                     </div>
                 </div>
                 
-                <!-- Botões de ação -->
                 <div class="hero-buttons">
                     <button class="btn btn-primary" onclick="scrollToSection('quiz')">
                         <i class="fas fa-play"></i>
@@ -92,15 +80,12 @@
     <!-- SEÇÃO DO QUIZ -->
     <section class="quiz-section" id="quiz">
         <div class="container">
-            <!-- Cabeçalho da seção -->
             <div class="section-header">
                 <h2><i class="fas fa-brain"></i> Quiz de Programação</h2>
                 <p>Teste seus conhecimentos em desenvolvimento web</p>
             </div>
             
-            <!-- Container do quiz (visível durante o quiz) -->
             <div class="quiz-card" id="quizz-container">
-                <!-- Cabeçalho do quiz com pergunta -->
                 <div class="quiz-header">
                     <div id="question">
                         <h3>
@@ -108,10 +93,8 @@
                         </h3>
                     </div>
                 </div>
-                <!-- Conteúdo do quiz com respostas -->
                 <div class="quiz-content">
                     <div id="answers-box">
-                        <!-- Template para as respostas (clonado via JavaScript) -->
                         <button class="answer-template hide answer-btn">
                             <span class="btn-letter">A</span>
                             <span class="question-answer">Template Answer</span>
@@ -120,23 +103,19 @@
                 </div>
             </div>
             
-            <!-- Container do resultado (visível após completar o quiz) -->
             <div class="score-card hide" id="score-container">
                 <div class="score-header">
                     <i class="fas fa-trophy"></i>
                     <h3>Quiz Finalizado!</h3>
                 </div>
                 <div class="score-content">
-                    <!-- Pontuação em porcentagem -->
                     <div class="score-display">
                         <span id="display-score">0%</span>
                     </div>
-                    <!-- Detalhes da pontuação -->
                     <p>
                         Você acertou <span id="correct-answers" class="highlight">0</span> 
                         de <span id="questions-qty" class="highlight">6</span> perguntas
                     </p>
-                    <!-- Botão para reiniciar o quiz -->
                     <button class="btn btn-primary" id="restart">
                         <i class="fas fa-redo"></i>
                         Tentar Novamente
@@ -146,7 +125,7 @@
         </div>
     </section>
 
-    <!-- SEÇÃO DAS FERRAMENTAS INTERATIVAS -->
+    <!-- SEÇÃO DAS FERRAMENTAS -->
     <section class="tools-section" id="tools">
         <div class="container">
             <div class="section-header">
@@ -154,7 +133,6 @@
                 <p>Recursos desenvolvidos com JavaScript puro</p>
             </div>
             
-            <!-- Grid das ferramentas -->
             <div class="tools-grid">
                 <!-- CALCULADORA -->
                 <div class="tool-card">
@@ -163,34 +141,27 @@
                         <h3>Calculadora</h3>
                     </div>
                     <div class="tool-content">
-                        <!-- Display da calculadora -->
                         <div class="calculator-display" id="calculatorDisplay">0</div>
-                        <!-- Botões da calculadora -->
                         <div class="calculator-buttons">
-                            <!-- Linha 1: Clear e operadores -->
                             <button class="calc-btn calc-btn-clear" onclick="clearCalculator()">C</button>
                             <button class="calc-btn calc-btn-operator" onclick="inputOperation('/')">/</button>
                             <button class="calc-btn calc-btn-operator" onclick="inputOperation('*')">×</button>
                             <button class="calc-btn calc-btn-operator" onclick="inputOperation('-')">-</button>
                             
-                            <!-- Linha 2: Números 7-9 e soma -->
                             <button class="calc-btn" onclick="inputNumber('7')">7</button>
                             <button class="calc-btn" onclick="inputNumber('8')">8</button>
                             <button class="calc-btn" onclick="inputNumber('9')">9</button>
                             <button class="calc-btn calc-btn-operator calc-btn-plus" onclick="inputOperation('+')">+</button>
                             
-                            <!-- Linha 3: Números 4-6 -->
                             <button class="calc-btn" onclick="inputNumber('4')">4</button>
                             <button class="calc-btn" onclick="inputNumber('5')">5</button>
                             <button class="calc-btn" onclick="inputNumber('6')">6</button>
                             
-                            <!-- Linha 4: Números 1-3 -->
                             <button class="calc-btn" onclick="inputNumber('1')">1</button>
                             <button class="calc-btn" onclick="inputNumber('2')">2</button>
                             <button class="calc-btn" onclick="inputNumber('3')">3</button>
                             <button class="calc-btn calc-btn-equals" onclick="performCalculation()">=</button>
                             
-                            <!-- Linha 5: Zero e ponto decimal -->
                             <button class="calc-btn calc-btn-zero" onclick="inputNumber('0')">0</button>
                             <button class="calc-btn" onclick="inputNumber('.')">.</button>
                         </div>
@@ -204,11 +175,8 @@
                         <h3>Seletor de Cores</h3>
                     </div>
                     <div class="tool-content">
-                        <!-- Preview da cor selecionada -->
                         <div class="color-preview" id="colorPreview"></div>
-                        <!-- Input de cor nativo do HTML5 -->
                         <input type="color" id="colorPicker" class="color-input" value="#3b82f6">
-                        <!-- Informações da cor em diferentes formatos -->
                         <div class="color-info">
                             <div class="color-value">
                                 <span>HEX:</span>
@@ -229,15 +197,12 @@
                         <h3>Relógio & Cronômetro</h3>
                     </div>
                     <div class="tool-content">
-                        <!-- Display do relógio atual -->
                         <div class="clock-display">
                             <div class="current-time" id="currentTime"></div>
                             <div class="current-date" id="currentDate"></div>
                         </div>
-                        <!-- Seção do cronômetro -->
                         <div class="stopwatch-section">
                             <div class="stopwatch-display" id="stopwatchDisplay">00:00.00</div>
-                            <!-- Controles do cronômetro -->
                             <div class="stopwatch-controls">
                                 <button class="btn btn-small" id="stopwatchToggle">
                                     <i class="fas fa-play"></i>
@@ -261,7 +226,6 @@
                 <p>Formulários com validação JavaScript completa</p>
             </div>
             
-            <!-- Grid dos formulários -->
             <div class="forms-grid">
                 <!-- FORMULÁRIO DE CONTATO -->
                 <div class="form-card">
@@ -270,7 +234,6 @@
                         <h3>Contato</h3>
                     </div>
                     <form class="contact-form" id="contactForm">
-                        <!-- Linha com nome e email -->
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="contactName">Nome *</label>
@@ -285,21 +248,18 @@
                             </div>
                         </div>
                         
-                        <!-- Campo de telefone -->
                         <div class="form-group">
                             <label for="contactPhone">Telefone</label>
                             <input type="tel" id="contactPhone" name="phone" placeholder="(11) 99999-9999">
                             <span class="error-message"></span>
                         </div>
                         
-                        <!-- Campo de mensagem -->
                         <div class="form-group">
                             <label for="contactMessage">Mensagem *</label>
                             <textarea id="contactMessage" name="message" rows="4" required></textarea>
                             <span class="error-message"></span>
                         </div>
                         
-                        <!-- Botão de envio -->
                         <button type="submit" class="btn btn-primary btn-full">
                             <i class="fas fa-paper-plane"></i>
                             Enviar Mensagem
@@ -314,14 +274,12 @@
                         <h3>Newsletter</h3>
                     </div>
                     <form class="newsletter-form" id="newsletterForm">
-                        <!-- Campo de email -->
                         <div class="form-group">
                             <label for="newsletterEmail">Email *</label>
                             <input type="email" id="newsletterEmail" name="email" required>
                             <span class="error-message"></span>
                         </div>
                         
-                        <!-- Seleção de interesses -->
                         <div class="form-group">
                             <label>Interesses *</label>
                             <div class="checkbox-grid">
@@ -345,7 +303,6 @@
                             <span class="error-message"></span>
                         </div>
                         
-                        <!-- Botão de inscrição -->
                         <button type="submit" class="btn btn-primary btn-full">
                             <i class="fas fa-envelope"></i>
                             Inscrever-se
@@ -360,7 +317,6 @@
                         <h3>Criar Conta</h3>
                     </div>
                     <form class="register-form" id="registerForm">
-                        <!-- Linha com nome e email -->
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="registerName">Nome Completo *</label>
@@ -375,7 +331,6 @@
                             </div>
                         </div>
                         
-                        <!-- Linha com username e data de nascimento -->
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="registerUsername">Nome de Usuário *</label>
@@ -390,17 +345,14 @@
                             </div>
                         </div>
                         
-                        <!-- Campo de senha com validação visual -->
                         <div class="form-group">
                             <label for="registerPassword">Senha *</label>
                             <div class="password-input">
                                 <input type="password" id="registerPassword" name="password" required>
-                                <!-- Botão para mostrar/ocultar senha -->
                                 <button type="button" class="password-toggle" id="passwordToggle">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
-                            <!-- Requisitos da senha com validação visual -->
                             <div class="password-requirements" id="passwordRequirements">
                                 <div class="requirement" data-requirement="length">
                                     <i class="fas fa-times"></i>
@@ -426,7 +378,6 @@
                             <span class="error-message"></span>
                         </div>
                         
-                        <!-- Checkbox para aceitar termos -->
                         <div class="form-group">
                             <label class="checkbox-label">
                                 <input type="checkbox" id="acceptTerms" name="acceptTerms" required>
@@ -435,7 +386,6 @@
                             <span class="error-message"></span>
                         </div>
                         
-                        <!-- Botão de criação de conta -->
                         <button type="submit" class="btn btn-primary btn-full">
                             <i class="fas fa-user-plus"></i>
                             Criar Conta
@@ -444,10 +394,9 @@
                 </div>
             </div>
             
-            <!-- SEÇÃO DE INFORMAÇÕES DE CONTATO -->
+            <!-- INFORMAÇÕES DE CONTATO -->
             <div class="contact-info-section">
                 <div class="contact-info-grid">
-                    <!-- Item de contato: Email -->
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
@@ -455,7 +404,6 @@
                             <span>contato@devquiz.com</span>
                         </div>
                     </div>
-                    <!-- Item de contato: Telefone -->
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <div>
@@ -463,7 +411,6 @@
                             <span>(11) 99999-9999</span>
                         </div>
                     </div>
-                    <!-- Item de contato: Localização -->
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
@@ -471,7 +418,6 @@
                             <span>São Paulo, SP - Brasil</span>
                         </div>
                     </div>
-                    <!-- Item de contato: Horário -->
                     <div class="contact-item">
                         <i class="fas fa-clock"></i>
                         <div>
@@ -484,7 +430,7 @@
         </div>
     </section>
 
-    <!-- NOTIFICAÇÕES TOAST -->
+    <!-- NOTIFICAÇÃO TOAST -->
     <div class="toast" id="toast">
         <div class="toast-content">
             <i class="toast-icon"></i>
@@ -503,7 +449,6 @@
         </div>
     </div>
 
-    <!-- JavaScript personalizado -->
     <script src="script.js"></script>
 </body>
 </html>
