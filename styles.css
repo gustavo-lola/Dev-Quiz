@@ -1,166 +1,1357 @@
+/* ===================================
+   RESET E ESTILOS BASE
+   =================================== */
 
+/* Reset básico para remover margens e paddings padrão */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: Helvetica;
+  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
 }
 
+/* Variáveis CSS para cores e valores reutilizáveis */
+:root {
+  /* Cores principais */
+  --primary-color: #3b82f6; /* Azul principal */
+  --primary-dark: #2563eb; /* Azul escuro para hover */
+  --secondary-color: #8b5cf6; /* Roxo secundário */
+  --success-color: #10b981; /* Verde para sucesso */
+  --warning-color: #f59e0b; /* Amarelo para avisos */
+  --error-color: #ef4444; /* Vermelho para erros */
+
+  /* Cores de texto */
+  --text-primary: #1f2937; /* Texto principal escuro */
+  --text-secondary: #6b7280; /* Texto secundário cinza */
+  --text-light: #9ca3af; /* Texto claro */
+
+  /* Cores de fundo */
+  --bg-primary: #ffffff; /* Fundo branco */
+  --bg-secondary: #f9fafb; /* Fundo cinza claro */
+  --bg-tertiary: #f3f4f6; /* Fundo cinza médio */
+  --border-color: #e5e7eb; /* Cor das bordas */
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  /* Bordas arredondadas */
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+
+  /* Transições */
+  --transition: all 0.3s ease;
+}
+
+/* Tema escuro - sobrescreve as variáveis quando ativo */
+[data-theme="dark"] {
+  --text-primary: #f9fafb; /* Texto claro no tema escuro */
+  --text-secondary: #d1d5db; /* Texto secundário claro */
+  --text-light: #9ca3af; /* Texto light mantém */
+  --bg-primary: #1f2937; /* Fundo escuro */
+  --bg-secondary: #111827; /* Fundo mais escuro */
+  --bg-tertiary: #374151; /* Fundo cinza escuro */
+  --border-color: #4b5563; /* Bordas mais claras */
+}
+
+/* Estilos base do body */
 body {
-  background-color: #242940;
-  color: #FFF;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6; /* Altura da linha para melhor legibilidade */
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  overflow-x: hidden; /* Remove scroll horizontal */
 }
 
+/* Container principal para centralizar conteúdo */
+.container {
+  max-width: 1200px; /* Largura máxima */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 0 1rem; /* Padding lateral */
+}
+
+/* ===================================
+   TIPOGRAFIA
+   =================================== */
+
+/* Estilos para todos os títulos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700; /* Negrito */
+  line-height: 1.2; /* Altura da linha compacta */
+  margin-bottom: 0.5rem; /* Margem inferior */
+}
+
+/* Tamanhos específicos dos títulos */
+h1 {
+  font-size: 3.5rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+
+/* Estilos para parágrafos */
+p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Classe para destacar texto */
+.highlight {
+  color: var(--primary-color);
+}
+
+/* Estilos para links */
+.link {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.link:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+/* ===================================
+   BOTÕES
+   =================================== */
+
+/* Estilo base para todos os botões */
+.btn {
+  display: inline-flex; /* Flexbox para alinhar ícones */
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Espaço entre ícone e texto */
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap; /* Impede quebra de linha */
+}
+
+/* Botão primário (azul) */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px); /* Efeito de elevação */
+  box-shadow: var(--shadow-lg);
+}
+
+/* Botão com contorno */
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Botão pequeno */
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Botão que ocupa toda a largura */
+.btn-full {
+  width: 100%;
+}
+
+/* Estado desabilitado dos botões */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===================================
+   CABEÇALHO
+   =================================== */
+
+/* Header fixo no topo */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Fica acima de outros elementos */
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px); /* Efeito de desfoque */
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+/* Header quando a página foi rolada */
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: var(--shadow-md);
+}
+
+/* Wrapper da navegação */
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+/* Logo do site */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.logo i {
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
+/* Navegação desktop */
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-desktop a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-desktop a:hover {
+  color: var(--primary-color);
+}
+
+/* Botão para alternar tema */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  color: var(--primary-color);
+  background-color: var(--bg-tertiary);
+}
+
+/* Botão do menu mobile (oculto no desktop) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Navegação mobile (oculta por padrão) */
+.nav-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.nav-mobile a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: var(--transition);
+}
+
+.nav-mobile a:hover {
+  color: var(--primary-color);
+}
+
+/* ===================================
+   SEÇÃO HERO
+   =================================== */
+
+/* Seção principal do site */
+.hero {
+  padding: 8rem 1rem 6rem; /* Padding extra no topo por causa do header fixo */
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, #dbeafe 100%);
+  text-align: center;
+}
+
+/* Título principal com gradiente */
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtítulo com animação de digitação */
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  min-height: 2rem; /* Altura mínima para evitar pulo */
+}
+
+/* Cursor piscante da animação de digitação */
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Container das estatísticas no hero */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 2rem 0;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: var(--border-radius-lg);
+  backdrop-filter: blur(10px); /* Efeito de vidro */
+}
+
+/* Item individual de estatística */
+.stat-item {
+  text-align: center;
+}
+
+/* Número da estatística */
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+}
+
+/* Label da estatística */
+.stat-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+/* Container dos botões do hero */
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* ===================================
+   CABEÇALHOS DE SEÇÃO
+   =================================== */
+
+/* Cabeçalho padrão das seções */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h2 {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.section-header h2 i {
+  color: var(--primary-color);
+}
+
+.section-header p {
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ===================================
+   SEÇÃO DO QUIZ
+   =================================== */
+
+.quiz-section {
+  padding: 4rem 1rem;
+  background-color: var(--bg-primary);
+}
+
+/* Cards do quiz e resultado */
+.quiz-card,
+.score-card {
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Cabeçalho do quiz com gradiente */
+.quiz-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Conteúdo do quiz */
+.quiz-content {
+  padding: 2rem;
+}
+
+/* Botões das respostas */
+.answer-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+}
+
+.answer-btn:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--primary-color);
+}
+
+/* Letra do botão de resposta */
+.btn-letter {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  flex-shrink: 0; /* Não encolhe */
+}
+
+/* Texto da resposta */
+.question-answer {
+  flex: 1; /* Ocupa espaço restante */
+  font-weight: 500;
+}
+
+/* Estados das respostas após seleção */
+.correct-answer {
+  background-color: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #15803d !important;
+}
+
+.wrong-answer {
+  background-color: #fef2f2 !important;
+  border-color: #dc2626 !important;
+  color: #dc2626 !important;
+}
+
+/* Card de resultado */
+.score-card {
+  text-align: center;
+}
+
+.score-header {
+  background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
+  color: white;
+  padding: 2rem;
+}
+
+.score-header i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.score-content {
+  padding: 2rem;
+}
+
+/* Display da pontuação */
+.score-display {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Classe para ocultar elementos */
 .hide {
   display: none !important;
 }
 
-#main-title {
-  padding: 40px 0;
-  text-align: center;
-  background-color: #2D425A;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
+/* ===================================
+   SEÇÃO DAS FERRAMENTAS
+   =================================== */
+
+.tools-section {
+  padding: 4rem 1rem;
+  background-color: var(--bg-secondary);
 }
 
-
-
-#score-container {
-  background-color: #CDDDE8;
-  color: #000;
-  text-align: center;
-  width: 300px;
-  margin: 50px auto;
-  padding: 25px;
-  border-radius: 20px;
+/* Grid das ferramentas */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
 }
 
-#score-container p {
-  font-size: 14px;
-  margin: 20px 0;
+/* Card individual da ferramenta */
+.tool-card {
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: var(--transition);
 }
 
-#score-container #display-score {
-  font-size: 32px;
-  font-weight: bold;
+.tool-card:hover {
+  transform: translateY(-5px); /* Efeito de elevação */
+  box-shadow: var(--shadow-xl);
 }
 
-#correct-answers {
-  font-weight: bold;
-  color: #40B576;
-}
-
-#questions-qty {
-  font-weight: bold;
-  color: #075EA4;
-}
-
-#restart {
-  background-color: #E78230;
-  color: #FFF;
-  font-weight: bold;
-  height: 50px;
-  border-radius: 25px;
-  border: 2px solid transparent;
-  width: 180px;
-  text-transform: uppercase;
-  margin-top: 20px;
-  cursor: pointer;
-  transition: .5s;
-}
-
-#restart:hover {
-  background-color: transparent;
-  border-color: #E78230;
-  color: #E78230;
-}
-
-
-
-#quizz-container {
-  width: 500px;
-  margin: 50px auto;
-  border: 1px solid #CDDDE8;
-  padding: 25px;
-  border-radius: 25px;
-}
-
-#question {
-  text-align: center;
-  margin-bottom: 25px;
-  font-size: 20px;
-}
-
-#question-number {
-  font-weight: bold;
-}
-
-#answers-box button {
+/* Cabeçalho da ferramenta */
+.tool-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 1.5rem;
   display: flex;
   align-items: center;
-  margin: 15px 0;
-  width: 300px;
-  height: 50px;
-  border-radius: 25px;
-  background-color: #CDDDE8;
-  border: 2px solid transparent;
-  color: #FFF;
-  text-align: left;
-  padding-left: 5px;
-  color: #000;
+  gap: 0.75rem;
+}
+
+.tool-header i {
+  font-size: 1.5rem;
+}
+
+/* Conteúdo da ferramenta */
+.tool-content {
+  padding: 1.5rem;
+}
+
+/* ===================================
+   CALCULADORA
+   =================================== */
+
+/* Display da calculadora */
+.calculator-display {
+  background-color: var(--text-primary);
+  color: white;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  font-family: "Courier New", monospace;
+  font-size: 1.5rem;
+  text-align: right;
+  margin-bottom: 1rem;
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Grid dos botões da calculadora */
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+/* Botão base da calculadora */
+.calc-btn {
+  padding: 1rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: .5s;
+  transition: var(--transition);
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
 }
 
-#answers-box button:hover {
-  background-color: #E78230;
-  color: #FFF;
+.calc-btn:hover {
+  background-color: var(--border-color);
 }
 
-#answers-box .btn-letter {
-  font-size: 30px;
-  font-weight: bold;
-  background-color: #E78230;
-  color: #FFF;
-  border-radius: 50%;
-  line-height: 40px;
+/* Botões de operadores */
+.calc-btn-operator {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.calc-btn-operator:hover {
+  background-color: var(--primary-dark);
+}
+
+/* Botão de limpar */
+.calc-btn-clear {
+  background-color: var(--error-color);
+  color: white;
+}
+
+.calc-btn-clear:hover {
+  background-color: #dc2626;
+}
+
+/* Botão de igual */
+.calc-btn-equals {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.calc-btn-equals:hover {
+  background-color: #059669;
+}
+
+/* Botão zero (ocupa 2 colunas) */
+.calc-btn-zero {
+  grid-column: span 2;
+}
+
+/* Botão de soma (ocupa 2 linhas) */
+.calc-btn-plus {
+  grid-row: span 2;
+}
+
+/* ===================================
+   SELETOR DE CORES
+   =================================== */
+
+/* Preview da cor selecionada */
+.color-preview {
+  width: 100%;
+  height: 6rem;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--border-color);
+  margin-bottom: 1rem;
+  background-color: #3b82f6; /* Cor padrão */
+}
+
+/* Input de cor nativo */
+.color-input {
+  width: 100%;
+  height: 3rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+/* Container das informações de cor */
+.color-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Linha de valor de cor */
+.color-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.color-value span:first-child {
+  font-weight: 600;
+}
+
+.color-value span:last-child {
+  font-family: "Courier New", monospace;
+  background-color: var(--bg-tertiary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* ===================================
+   RELÓGIO E CRONÔMETRO
+   =================================== */
+
+/* Display do relógio */
+.clock-display {
   text-align: center;
-  text-transform: uppercase;
-  flex: 1 1 0;
-  max-width: 40px;
+  margin-bottom: 1.5rem;
 }
 
-.question-answer {
-  flex: 1 1 0;
-  margin-left: 10px;
-  font-size: 16px;
+.current-time {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  font-family: "Courier New", monospace;
 }
 
-#quizz-container .wrong-answer,
-#quizz-container .wrong-answer .btn-letter {
-  background-color: #e62210;
-  color: #FFF;
+.current-date {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
 }
 
-#quizz-container .correct-answer,
-#quizz-container .correct-answer .btn-letter {
-  background-color: #40B576;
-  color: #FFF;
+/* Seção do cronômetro */
+.stopwatch-section {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
 }
 
+.stopwatch-display {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "Courier New", monospace;
+  margin-bottom: 1rem;
+}
 
+/* Controles do cronômetro */
+.stopwatch-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
 
-@media(max-width:450px) {
-  #quizz-container {
-    border: none;
-    width: 100%;
+/* ===================================
+   SEÇÃO DOS FORMULÁRIOS
+   =================================== */
+
+.forms-section {
+  padding: 4rem 1rem;
+  background-color: var(--bg-primary);
+}
+
+/* Grid dos formulários */
+.forms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Card do formulário */
+.form-card {
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+/* Formulário que ocupa toda a largura */
+.form-card-wide {
+  grid-column: 1 / -1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Cabeçalho do formulário */
+.form-header {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form-header i {
+  font-size: 1.5rem;
+}
+
+/* Conteúdo do formulário */
+.form-card form {
+  padding: 2rem;
+}
+
+/* Grupo de campo do formulário */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Linha com múltiplos campos */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Labels dos campos */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Inputs, textareas e selects */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Estado de foco dos campos */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Estado de erro dos campos */
+.form-group input.error,
+.form-group textarea.error,
+.form-group select.error {
+  border-color: var(--error-color);
+}
+
+/* Mensagem de erro */
+.error-message {
+  display: block;
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  min-height: 1.25rem; /* Altura mínima para evitar pulo */
+}
+
+/* Grid de checkboxes */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+/* Label de checkbox */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: normal;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.checkbox-label:hover {
+  background-color: var(--bg-secondary);
+}
+
+.checkbox-label input {
+  width: auto;
+  margin: 0;
+}
+
+/* ===================================
+   CAMPO DE SENHA
+   =================================== */
+
+/* Container do input de senha */
+.password-input {
+  position: relative;
+}
+
+/* Botão para mostrar/ocultar senha */
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* Container dos requisitos da senha */
+.password-requirements {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+
+/* Item individual de requisito */
+.requirement {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.requirement i {
+  width: 1rem;
+  color: var(--error-color);
+}
+
+/* Requisito válido */
+.requirement.valid i {
+  color: var(--success-color);
+}
+
+/* ===================================
+   INFORMAÇÕES DE CONTATO
+   =================================== */
+
+.contact-info-section {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 2px solid var(--border-color);
+}
+
+/* Grid das informações de contato */
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+/* Item individual de contato */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  transition: var(--transition);
+}
+
+.contact-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Ícone do item de contato */
+.contact-item i {
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* Conteúdo do item de contato */
+.contact-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item strong {
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.contact-item span {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+/* ===================================
+   NOTIFICAÇÕES TOAST
+   =================================== */
+
+/* Container da notificação */
+.toast {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10000;
+  background-color: var(--bg-primary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 300px;
+  transform: translateX(400px); /* Inicialmente fora da tela */
+  transition: transform 0.3s ease;
+}
+
+/* Toast visível */
+.toast.show {
+  transform: translateX(0);
+}
+
+/* Tipos de toast */
+.toast.success {
+  border-left: 4px solid var(--success-color);
+}
+
+.toast.error {
+  border-left: 4px solid var(--error-color);
+}
+
+.toast.warning {
+  border-left: 4px solid var(--warning-color);
+}
+
+/* Conteúdo do toast */
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.toast-icon {
+  font-size: 1.25rem;
+}
+
+/* Cores dos ícones por tipo */
+.toast.success .toast-icon {
+  color: var(--success-color);
+}
+
+.toast.error .toast-icon {
+  color: var(--error-color);
+}
+
+.toast.warning .toast-icon {
+  color: var(--warning-color);
+}
+
+.toast-message {
+  font-weight: 500;
+}
+
+/* Botão de fechar toast */
+.toast-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.toast-close:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* ===================================
+   OVERLAY DE CARREGAMENTO
+   =================================== */
+
+/* Overlay que cobre toda a tela */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Overlay visível */
+.loading-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Container do spinner */
+.loading-spinner {
+  background-color: var(--bg-primary);
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-xl);
+}
+
+/* Spinner animado */
+.spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+/* Animação de rotação */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* ===================================
+   RESPONSIVIDADE - TABLET E MOBILE
+   =================================== */
+
+/* Tablets e telas menores */
+@media (max-width: 768px) {
+  /* Oculta navegação desktop e mostra mobile */
+  .nav-desktop {
+    display: none;
   }
 
-  #answers-box button {
-    width: 100%;
+  .menu-toggle {
+    display: block;
   }
 
-  #score-container {
-    width: 90%;
+  .nav-mobile.show {
+    display: flex;
+  }
+
+  /* Ajustes no hero */
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Grids responsivos */
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .forms-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ajustes no toast */
+  .toast {
+    right: 1rem;
+    left: 1rem;
+    min-width: auto;
+  }
+
+  /* Calculadora mais compacta */
+  .calculator-buttons {
+    gap: 0.25rem;
+  }
+
+  .calc-btn {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  /* Checkboxes em coluna única */
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Requisitos de senha em coluna única */
+  .password-requirements {
+    grid-template-columns: 1fr;
   }
 }
+
+/* Smartphones */
+@media (max-width: 480px) {
+  /* Container mais estreito */
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  /* Hero mais compacto */
+  .hero {
+    padding: 6rem 0.5rem 4rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  /* Cabeçalhos de seção menores */
+  .section-header h2 {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* ===================================
+   ANIMAÇÕES
+   =================================== */
+
+/* Animação de entrada de baixo para cima */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Classe para aplicar animação */
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* ===================================
+   CLASSES UTILITÁRIAS
+   =================================== */
+
+/* Alinhamento de texto */
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+
+/* Largura e altura */
+.w-full {
+  width: 100%;
+}
+.h-full {
+  height: 100%;
+}
+
+/* Flexbox */
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+
+/* Bordas arredondadas */
+.rounded {
+  border-radius: var(--border-radius);
+}
+.rounded-lg {
+  border-radius: var(--border-radius-lg);
+}
+.rounded-full {
+  border-radius: 50%;
+}
+
+/* Sombras */
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+
