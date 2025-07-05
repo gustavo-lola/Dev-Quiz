@@ -1,93 +1,72 @@
-/* ===================================
-   RESET E ESTILOS BASE
-   =================================== */
-
-/* Reset básico para remover margens e paddings padrão */
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+  box-sizing: border-box;
 }
 
-/* Variáveis CSS para cores e valores reutilizáveis */
+/* Variáveis CSS */
 :root {
-  /* Cores principais */
-  --primary-color: #3b82f6; /* Azul principal */
-  --primary-dark: #2563eb; /* Azul escuro para hover */
-  --secondary-color: #8b5cf6; /* Roxo secundário */
-  --success-color: #10b981; /* Verde para sucesso */
-  --warning-color: #f59e0b; /* Amarelo para avisos */
-  --error-color: #ef4444; /* Vermelho para erros */
-
-  /* Cores de texto */
-  --text-primary: #1f2937; /* Texto principal escuro */
-  --text-secondary: #6b7280; /* Texto secundário cinza */
-  --text-light: #9ca3af; /* Texto claro */
-
-  /* Cores de fundo */
-  --bg-primary: #ffffff; /* Fundo branco */
-  --bg-secondary: #f9fafb; /* Fundo cinza claro */
-  --bg-tertiary: #f3f4f6; /* Fundo cinza médio */
-  --border-color: #e5e7eb; /* Cor das bordas */
-
-  /* Sombras */
+  --primary-color: #3b82f6;
+  --primary-dark: #2563eb;
+  --secondary-color: #8b5cf6;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-light: #9ca3af;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f3f4f6;
+  --border-color: #e5e7eb;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-
-  /* Bordas arredondadas */
   --border-radius: 8px;
   --border-radius-lg: 12px;
-
-  /* Transições */
   --transition: all 0.3s ease;
 }
 
-/* Tema escuro - sobrescreve as variáveis quando ativo */
+/* Tema escuro */
 [data-theme="dark"] {
-  --text-primary: #f9fafb; /* Texto claro no tema escuro */
-  --text-secondary: #d1d5db; /* Texto secundário claro */
-  --text-light: #9ca3af; /* Texto light mantém */
-  --bg-primary: #1f2937; /* Fundo escuro */
-  --bg-secondary: #111827; /* Fundo mais escuro */
-  --bg-tertiary: #374151; /* Fundo cinza escuro */
-  --border-color: #4b5563; /* Bordas mais claras */
+  --text-primary: #f9fafb;
+  --text-secondary: #d1d5db;
+  --text-light: #9ca3af;
+  --bg-primary: #1f2937;
+  --bg-secondary: #111827;
+  --bg-tertiary: #374151;
+  --border-color: #4b5563;
 }
 
-/* Estilos base do body */
+/* Estilos base */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6; /* Altura da linha para melhor legibilidade */
+  line-height: 1.6;
   color: var(--text-primary);
   background-color: var(--bg-secondary);
-  overflow-x: hidden; /* Remove scroll horizontal */
+  overflow-x: hidden;
 }
 
-/* Container principal para centralizar conteúdo */
 .container {
-  max-width: 1200px; /* Largura máxima */
-  margin: 0 auto; /* Centraliza horizontalmente */
-  padding: 0 1rem; /* Padding lateral */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* ===================================
-   TIPOGRAFIA
-   =================================== */
-
-/* Estilos para todos os títulos */
+/* Tipografia */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 700; /* Negrito */
-  line-height: 1.2; /* Altura da linha compacta */
-  margin-bottom: 0.5rem; /* Margem inferior */
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
 }
 
-/* Tamanhos específicos dos títulos */
 h1 {
   font-size: 3.5rem;
 }
@@ -98,18 +77,15 @@ h3 {
   font-size: 1.75rem;
 }
 
-/* Estilos para parágrafos */
 p {
   margin-bottom: 1rem;
   color: var(--text-secondary);
 }
 
-/* Classe para destacar texto */
 .highlight {
   color: var(--primary-color);
 }
 
-/* Estilos para links */
 .link {
   color: var(--primary-color);
   text-decoration: none;
@@ -121,16 +97,12 @@ p {
   text-decoration: underline;
 }
 
-/* ===================================
-   BOTÕES
-   =================================== */
-
-/* Estilo base para todos os botões */
+/* Botões */
 .btn {
-  display: inline-flex; /* Flexbox para alinhar ícones */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem; /* Espaço entre ícone e texto */
+  gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: var(--border-radius);
@@ -139,10 +111,9 @@ p {
   text-decoration: none;
   cursor: pointer;
   transition: var(--transition);
-  white-space: nowrap; /* Impede quebra de linha */
+  white-space: nowrap;
 }
 
-/* Botão primário (azul) */
 .btn-primary {
   background-color: var(--primary-color);
   color: white;
@@ -150,11 +121,10 @@ p {
 
 .btn-primary:hover {
   background-color: var(--primary-dark);
-  transform: translateY(-2px); /* Efeito de elevação */
+  transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
-/* Botão com contorno */
 .btn-outline {
   background-color: transparent;
   color: var(--primary-color);
@@ -166,48 +136,39 @@ p {
   color: white;
 }
 
-/* Botão pequeno */
 .btn-small {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
 }
 
-/* Botão que ocupa toda a largura */
 .btn-full {
   width: 100%;
 }
 
-/* Estado desabilitado dos botões */
 .btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
   transform: none;
 }
 
-/* ===================================
-   CABEÇALHO
-   =================================== */
-
-/* Header fixo no topo */
+/* Header */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000; /* Fica acima de outros elementos */
+  z-index: 1000;
   background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px); /* Efeito de desfoque */
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
   transition: var(--transition);
 }
 
-/* Header quando a página foi rolada */
 .header.scrolled {
   background-color: rgba(255, 255, 255, 0.98);
   box-shadow: var(--shadow-md);
 }
 
-/* Wrapper da navegação */
 .nav-wrapper {
   display: flex;
   align-items: center;
@@ -215,7 +176,6 @@ p {
   padding: 1rem 0;
 }
 
-/* Logo do site */
 .logo {
   display: flex;
   align-items: center;
@@ -230,7 +190,6 @@ p {
   font-size: 2rem;
 }
 
-/* Navegação desktop */
 .nav-desktop {
   display: flex;
   align-items: center;
@@ -248,7 +207,6 @@ p {
   color: var(--primary-color);
 }
 
-/* Botão para alternar tema */
 .theme-toggle {
   background: none;
   border: none;
@@ -265,7 +223,6 @@ p {
   background-color: var(--bg-tertiary);
 }
 
-/* Botão do menu mobile (oculto no desktop) */
 .menu-toggle {
   display: none;
   background: none;
@@ -276,7 +233,6 @@ p {
   padding: 0.5rem;
 }
 
-/* Navegação mobile (oculta por padrão) */
 .nav-mobile {
   display: none;
   flex-direction: column;
@@ -297,18 +253,13 @@ p {
   color: var(--primary-color);
 }
 
-/* ===================================
-   SEÇÃO HERO
-   =================================== */
-
-/* Seção principal do site */
+/* Hero */
 .hero {
-  padding: 8rem 1rem 6rem; /* Padding extra no topo por causa do header fixo */
+  padding: 8rem 1rem 6rem;
   background: linear-gradient(135deg, var(--bg-secondary) 0%, #dbeafe 100%);
   text-align: center;
 }
 
-/* Título principal com gradiente */
 .hero-content h1 {
   font-size: 4rem;
   margin-bottom: 1rem;
@@ -318,14 +269,12 @@ p {
   background-clip: text;
 }
 
-/* Subtítulo com animação de digitação */
 .hero-subtitle {
   font-size: 1.5rem;
   margin-bottom: 2rem;
-  min-height: 2rem; /* Altura mínima para evitar pulo */
+  min-height: 2rem;
 }
 
-/* Cursor piscante da animação de digitação */
 .cursor {
   animation: blink 1s infinite;
 }
@@ -341,7 +290,6 @@ p {
   }
 }
 
-/* Container das estatísticas no hero */
 .hero-stats {
   display: flex;
   justify-content: center;
@@ -350,15 +298,13 @@ p {
   padding: 2rem;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: var(--border-radius-lg);
-  backdrop-filter: blur(10px); /* Efeito de vidro */
+  backdrop-filter: blur(10px);
 }
 
-/* Item individual de estatística */
 .stat-item {
   text-align: center;
 }
 
-/* Número da estatística */
 .stat-number {
   font-size: 2.5rem;
   font-weight: 700;
@@ -366,14 +312,12 @@ p {
   margin-bottom: 0.25rem;
 }
 
-/* Label da estatística */
 .stat-label {
   color: var(--text-secondary);
   font-weight: 500;
   font-size: 0.875rem;
 }
 
-/* Container dos botões do hero */
 .hero-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -382,11 +326,7 @@ p {
   margin-top: 2rem;
 }
 
-/* ===================================
-   CABEÇALHOS DE SEÇÃO
-   =================================== */
-
-/* Cabeçalho padrão das seções */
+/* Cabeçalhos de seção */
 .section-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -410,16 +350,12 @@ p {
   margin: 0 auto;
 }
 
-/* ===================================
-   SEÇÃO DO QUIZ
-   =================================== */
-
+/* Quiz */
 .quiz-section {
   padding: 4rem 1rem;
   background-color: var(--bg-primary);
 }
 
-/* Cards do quiz e resultado */
 .quiz-card,
 .score-card {
   background-color: var(--bg-primary);
@@ -430,7 +366,6 @@ p {
   margin: 0 auto;
 }
 
-/* Cabeçalho do quiz com gradiente */
 .quiz-header {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
@@ -438,12 +373,10 @@ p {
   text-align: center;
 }
 
-/* Conteúdo do quiz */
 .quiz-content {
   padding: 2rem;
 }
 
-/* Botões das respostas */
 .answer-btn {
   width: 100%;
   display: flex;
@@ -464,7 +397,6 @@ p {
   border-color: var(--primary-color);
 }
 
-/* Letra do botão de resposta */
 .btn-letter {
   width: 2.5rem;
   height: 2.5rem;
@@ -475,16 +407,14 @@ p {
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  flex-shrink: 0; /* Não encolhe */
+  flex-shrink: 0;
 }
 
-/* Texto da resposta */
 .question-answer {
-  flex: 1; /* Ocupa espaço restante */
+  flex: 1;
   font-weight: 500;
 }
 
-/* Estados das respostas após seleção */
 .correct-answer {
   background-color: #dcfce7 !important;
   border-color: #16a34a !important;
@@ -497,7 +427,6 @@ p {
   color: #dc2626 !important;
 }
 
-/* Card de resultado */
 .score-card {
   text-align: center;
 }
@@ -517,7 +446,6 @@ p {
   padding: 2rem;
 }
 
-/* Display da pontuação */
 .score-display {
   font-size: 4rem;
   font-weight: 700;
@@ -525,28 +453,22 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Classe para ocultar elementos */
 .hide {
   display: none !important;
 }
 
-/* ===================================
-   SEÇÃO DAS FERRAMENTAS
-   =================================== */
-
+/* Ferramentas */
 .tools-section {
   padding: 4rem 1rem;
   background-color: var(--bg-secondary);
 }
 
-/* Grid das ferramentas */
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
 }
 
-/* Card individual da ferramenta */
 .tool-card {
   background-color: var(--bg-primary);
   border-radius: var(--border-radius-lg);
@@ -556,11 +478,10 @@ p {
 }
 
 .tool-card:hover {
-  transform: translateY(-5px); /* Efeito de elevação */
+  transform: translateY(-5px);
   box-shadow: var(--shadow-xl);
 }
 
-/* Cabeçalho da ferramenta */
 .tool-header {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
@@ -574,16 +495,11 @@ p {
   font-size: 1.5rem;
 }
 
-/* Conteúdo da ferramenta */
 .tool-content {
   padding: 1.5rem;
 }
 
-/* ===================================
-   CALCULADORA
-   =================================== */
-
-/* Display da calculadora */
+/* Calculadora */
 .calculator-display {
   background-color: var(--text-primary);
   color: white;
@@ -599,14 +515,12 @@ p {
   justify-content: flex-end;
 }
 
-/* Grid dos botões da calculadora */
 .calculator-buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 0.5rem;
 }
 
-/* Botão base da calculadora */
 .calc-btn {
   padding: 1rem;
   border: none;
@@ -623,7 +537,6 @@ p {
   background-color: var(--border-color);
 }
 
-/* Botões de operadores */
 .calc-btn-operator {
   background-color: var(--primary-color);
   color: white;
@@ -633,7 +546,6 @@ p {
   background-color: var(--primary-dark);
 }
 
-/* Botão de limpar */
 .calc-btn-clear {
   background-color: var(--error-color);
   color: white;
@@ -643,7 +555,6 @@ p {
   background-color: #dc2626;
 }
 
-/* Botão de igual */
 .calc-btn-equals {
   background-color: var(--success-color);
   color: white;
@@ -653,31 +564,24 @@ p {
   background-color: #059669;
 }
 
-/* Botão zero (ocupa 2 colunas) */
 .calc-btn-zero {
   grid-column: span 2;
 }
 
-/* Botão de soma (ocupa 2 linhas) */
 .calc-btn-plus {
   grid-row: span 2;
 }
 
-/* ===================================
-   SELETOR DE CORES
-   =================================== */
-
-/* Preview da cor selecionada */
+/* Seletor de cores */
 .color-preview {
   width: 100%;
   height: 6rem;
   border-radius: var(--border-radius);
   border: 2px solid var(--border-color);
   margin-bottom: 1rem;
-  background-color: #3b82f6; /* Cor padrão */
+  background-color: #3b82f6;
 }
 
-/* Input de cor nativo */
 .color-input {
   width: 100%;
   height: 3rem;
@@ -687,14 +591,12 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Container das informações de cor */
 .color-info {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-/* Linha de valor de cor */
 .color-value {
   display: flex;
   justify-content: space-between;
@@ -713,11 +615,7 @@ p {
   border-radius: 4px;
 }
 
-/* ===================================
-   RELÓGIO E CRONÔMETRO
-   =================================== */
-
-/* Display do relógio */
+/* Relógio */
 .clock-display {
   text-align: center;
   margin-bottom: 1.5rem;
@@ -736,7 +634,6 @@ p {
   margin-top: 0.25rem;
 }
 
-/* Seção do cronômetro */
 .stopwatch-section {
   border-top: 1px solid var(--border-color);
   padding-top: 1.5rem;
@@ -750,23 +647,18 @@ p {
   margin-bottom: 1rem;
 }
 
-/* Controles do cronômetro */
 .stopwatch-controls {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
 }
 
-/* ===================================
-   SEÇÃO DOS FORMULÁRIOS
-   =================================== */
-
+/* Formulários */
 .forms-section {
   padding: 4rem 1rem;
   background-color: var(--bg-primary);
 }
 
-/* Grid dos formulários */
 .forms-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -774,7 +666,6 @@ p {
   margin-bottom: 3rem;
 }
 
-/* Card do formulário */
 .form-card {
   background-color: var(--bg-primary);
   border-radius: var(--border-radius-lg);
@@ -783,14 +674,12 @@ p {
   border: 1px solid var(--border-color);
 }
 
-/* Formulário que ocupa toda a largura */
 .form-card-wide {
   grid-column: 1 / -1;
   max-width: 800px;
   margin: 0 auto;
 }
 
-/* Cabeçalho do formulário */
 .form-header {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
@@ -804,24 +693,20 @@ p {
   font-size: 1.5rem;
 }
 
-/* Conteúdo do formulário */
 .form-card form {
   padding: 2rem;
 }
 
-/* Grupo de campo do formulário */
 .form-group {
   margin-bottom: 1.5rem;
 }
 
-/* Linha com múltiplos campos */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
-/* Labels dos campos */
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
@@ -829,7 +714,6 @@ p {
   color: var(--text-primary);
 }
 
-/* Inputs, textareas e selects */
 .form-group input,
 .form-group textarea,
 .form-group select {
@@ -843,7 +727,6 @@ p {
   color: var(--text-primary);
 }
 
-/* Estado de foco dos campos */
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
@@ -852,30 +735,26 @@ p {
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-/* Estado de erro dos campos */
 .form-group input.error,
 .form-group textarea.error,
 .form-group select.error {
   border-color: var(--error-color);
 }
 
-/* Mensagem de erro */
 .error-message {
   display: block;
   color: var(--error-color);
   font-size: 0.875rem;
   margin-top: 0.25rem;
-  min-height: 1.25rem; /* Altura mínima para evitar pulo */
+  min-height: 1.25rem;
 }
 
-/* Grid de checkboxes */
 .checkbox-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
 }
 
-/* Label de checkbox */
 .checkbox-label {
   display: flex;
   align-items: center;
@@ -896,16 +775,11 @@ p {
   margin: 0;
 }
 
-/* ===================================
-   CAMPO DE SENHA
-   =================================== */
-
-/* Container do input de senha */
+/* Campo de senha */
 .password-input {
   position: relative;
 }
 
-/* Botão para mostrar/ocultar senha */
 .password-toggle {
   position: absolute;
   right: 0.75rem;
@@ -918,7 +792,6 @@ p {
   padding: 0.25rem;
 }
 
-/* Container dos requisitos da senha */
 .password-requirements {
   margin-top: 0.5rem;
   padding: 0.75rem;
@@ -930,7 +803,6 @@ p {
   gap: 0.5rem;
 }
 
-/* Item individual de requisito */
 .requirement {
   display: flex;
   align-items: center;
@@ -943,29 +815,23 @@ p {
   color: var(--error-color);
 }
 
-/* Requisito válido */
 .requirement.valid i {
   color: var(--success-color);
 }
 
-/* ===================================
-   INFORMAÇÕES DE CONTATO
-   =================================== */
-
+/* Informações de contato */
 .contact-info-section {
   margin-top: 3rem;
   padding-top: 3rem;
   border-top: 2px solid var(--border-color);
 }
 
-/* Grid das informações de contato */
 .contact-info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
 }
 
-/* Item individual de contato */
 .contact-item {
   display: flex;
   align-items: center;
@@ -981,7 +847,6 @@ p {
   box-shadow: var(--shadow-md);
 }
 
-/* Ícone do item de contato */
 .contact-item i {
   width: 3rem;
   height: 3rem;
@@ -995,7 +860,6 @@ p {
   flex-shrink: 0;
 }
 
-/* Conteúdo do item de contato */
 .contact-item div {
   display: flex;
   flex-direction: column;
@@ -1011,11 +875,7 @@ p {
   font-size: 0.875rem;
 }
 
-/* ===================================
-   NOTIFICAÇÕES TOAST
-   =================================== */
-
-/* Container da notificação */
+/* Toast */
 .toast {
   position: fixed;
   top: 2rem;
@@ -1030,16 +890,14 @@ p {
   align-items: center;
   gap: 1rem;
   min-width: 300px;
-  transform: translateX(400px); /* Inicialmente fora da tela */
+  transform: translateX(400px);
   transition: transform 0.3s ease;
 }
 
-/* Toast visível */
 .toast.show {
   transform: translateX(0);
 }
 
-/* Tipos de toast */
 .toast.success {
   border-left: 4px solid var(--success-color);
 }
@@ -1052,7 +910,6 @@ p {
   border-left: 4px solid var(--warning-color);
 }
 
-/* Conteúdo do toast */
 .toast-content {
   display: flex;
   align-items: center;
@@ -1064,7 +921,6 @@ p {
   font-size: 1.25rem;
 }
 
-/* Cores dos ícones por tipo */
 .toast.success .toast-icon {
   color: var(--success-color);
 }
@@ -1081,7 +937,6 @@ p {
   font-weight: 500;
 }
 
-/* Botão de fechar toast */
 .toast-close {
   background: none;
   border: none;
@@ -1096,11 +951,7 @@ p {
   background-color: var(--bg-tertiary);
 }
 
-/* ===================================
-   OVERLAY DE CARREGAMENTO
-   =================================== */
-
-/* Overlay que cobre toda a tela */
+/* Loading */
 .loading-overlay {
   position: fixed;
   top: 0;
@@ -1117,13 +968,11 @@ p {
   transition: all 0.3s ease;
 }
 
-/* Overlay visível */
 .loading-overlay.show {
   opacity: 1;
   visibility: visible;
 }
 
-/* Container do spinner */
 .loading-spinner {
   background-color: var(--bg-primary);
   padding: 2rem;
@@ -1132,7 +981,6 @@ p {
   box-shadow: var(--shadow-xl);
 }
 
-/* Spinner animado */
 .spinner {
   width: 3rem;
   height: 3rem;
@@ -1143,7 +991,6 @@ p {
   margin: 0 auto 1rem;
 }
 
-/* Animação de rotação */
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -1158,13 +1005,8 @@ p {
   color: var(--text-secondary);
 }
 
-/* ===================================
-   RESPONSIVIDADE - TABLET E MOBILE
-   =================================== */
-
-/* Tablets e telas menores */
+/* Responsividade */
 @media (max-width: 768px) {
-  /* Oculta navegação desktop e mostra mobile */
   .nav-desktop {
     display: none;
   }
@@ -1177,7 +1019,6 @@ p {
     display: flex;
   }
 
-  /* Ajustes no hero */
   .hero-content h1 {
     font-size: 2.5rem;
   }
@@ -1196,7 +1037,6 @@ p {
     align-items: center;
   }
 
-  /* Grids responsivos */
   .tools-grid {
     grid-template-columns: 1fr;
   }
@@ -1213,14 +1053,12 @@ p {
     grid-template-columns: 1fr;
   }
 
-  /* Ajustes no toast */
   .toast {
     right: 1rem;
     left: 1rem;
     min-width: auto;
   }
 
-  /* Calculadora mais compacta */
   .calculator-buttons {
     gap: 0.25rem;
   }
@@ -1230,25 +1068,20 @@ p {
     font-size: 0.875rem;
   }
 
-  /* Checkboxes em coluna única */
   .checkbox-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Requisitos de senha em coluna única */
   .password-requirements {
     grid-template-columns: 1fr;
   }
 }
 
-/* Smartphones */
 @media (max-width: 480px) {
-  /* Container mais estreito */
   .container {
     padding: 0 0.5rem;
   }
 
-  /* Hero mais compacto */
   .hero {
     padding: 6rem 0.5rem 4rem;
   }
@@ -1261,7 +1094,6 @@ p {
     font-size: 2rem;
   }
 
-  /* Cabeçalhos de seção menores */
   .section-header h2 {
     font-size: 2rem;
     flex-direction: column;
@@ -1269,11 +1101,7 @@ p {
   }
 }
 
-/* ===================================
-   ANIMAÇÕES
-   =================================== */
-
-/* Animação de entrada de baixo para cima */
+/* Animações */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1285,16 +1113,11 @@ p {
   }
 }
 
-/* Classe para aplicar animação */
 .animate-fade-in-up {
   animation: fadeInUp 0.6s ease-out;
 }
 
-/* ===================================
-   CLASSES UTILITÁRIAS
-   =================================== */
-
-/* Alinhamento de texto */
+/* Classes utilitárias */
 .text-center {
   text-align: center;
 }
@@ -1304,16 +1127,12 @@ p {
 .text-right {
   text-align: right;
 }
-
-/* Largura e altura */
 .w-full {
   width: 100%;
 }
 .h-full {
   height: 100%;
 }
-
-/* Flexbox */
 .flex {
   display: flex;
 }
@@ -1329,8 +1148,6 @@ p {
 .justify-between {
   justify-content: space-between;
 }
-
-/* Bordas arredondadas */
 .rounded {
   border-radius: var(--border-radius);
 }
@@ -1340,8 +1157,6 @@ p {
 .rounded-full {
   border-radius: 50%;
 }
-
-/* Sombras */
 .shadow-sm {
   box-shadow: var(--shadow-sm);
 }
