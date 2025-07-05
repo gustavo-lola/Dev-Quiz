@@ -18,6 +18,7 @@
 - **JavaScript Vanilla**
 
 ---
+Acesse : [https://gustavo-lola.github.io/Quiz/]
 
 ## 📦 Como executar localmente
 
