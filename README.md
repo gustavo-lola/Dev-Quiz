@@ -1,20 +1,29 @@
-# Quiz(Projeto destinado a disciplina de Pgweb)
+# 🚀 Dev Quiz
 
-Um Quiz basico destinado ao aprendizado de JS e teste de conhecimento.
+**Dev Quiz** é um projeto simples de perguntas e respostas (quiz) desenvolvido para fins educacionais, voltado ao aprendizado e prática de JavaScript, HTML e CSS. Ideal para testar seus conhecimentos enquanto aprende a construir interfaces interativas com tecnologias web modernas.
 
-## Tecnologias:
+### 🧠 Funcionalidades
 
-- # html <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" width="40" height="40"/>
-- # Css <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" width="40" height="40"/>
-- # JavaScript <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="40" height="40"/>
+- Perguntas de múltipla escolha
+- Contador de pontuação
+- Feedback visual imediato
+- Interface simples e responsiva
 
-## 🖥️ Visualize
+---
 
-Acesse : [https://gustavo-lola.github.io/Quiz/]
+## 🛠️ Tecnologias Utilizadas
 
+- **HTML5**
+- **CSS3**
+- **JavaScript Vanilla**
+
+---
+
+## 📦 Como executar localmente
+
+Clone o repositório e abra o projeto no navegador:
 
 ```bash
-git clone https:https://gustavohenriqueew.github.io/Quiz/
-cd portfolio-react
-npm install
-npm run dev
+git clone https://github.com/gustavohenriqueew/Quiz.git
+cd Quiz
+# Abra o arquivo index.html no seu navegador
