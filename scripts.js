@@ -3,7 +3,7 @@
    =================================== */
 
 // Objeto para controlar o estado da calculadora
-let calculator = {
+const calculator = {
   display: "0", // Valor mostrado no display
   previousValue: null, // Valor anterior para operações
   operation: null, // Operação atual (+, -, *, /)
@@ -106,6 +106,7 @@ function initializeApp() {
   updateClock() // Atualiza o relógio
   initializeQuiz() // Inicializa o quiz
   setupFormValidation() // Configura validação dos formulários
+  loadSavedTheme() // Carrega tema salvo
 
   // Inicia intervalos que rodam continuamente
   setInterval(updateClock, 1000) // Atualiza relógio a cada segundo
@@ -167,6 +168,12 @@ function setupEventListeners() {
   if (registerPassword) {
     registerPassword.addEventListener("input", checkPasswordRequirements)
   }
+
+  // === NAVEGAÇÃO SUAVE ===
+  setupSmoothScrolling()
+
+  // === FORMATAÇÃO DE TELEFONE ===
+  setupPhoneFormatting()
 }
 
 /* ===================================
@@ -252,6 +259,20 @@ function toggleTheme() {
   localStorage.setItem("theme", body.dataset.theme)
 }
 
+function loadSavedTheme() {
+  const savedTheme = localStorage.getItem("theme")
+  if (savedTheme) {
+    document.body.dataset.theme = savedTheme
+    const themeToggle = document.getElementById("themeToggle")
+    const icon = themeToggle?.querySelector("i")
+
+    if (savedTheme === "dark" && icon) {
+      icon.classList.remove("fa-moon")
+      icon.classList.add("fa-sun")
+    }
+  }
+}
+
 /* ===================================
    EFEITOS DE SCROLL
    =================================== */
@@ -275,6 +296,24 @@ function scrollToSection(sectionId) {
   if (section) {
     section.scrollIntoView({ behavior: "smooth" })
   }
+}
+
+function setupSmoothScrolling() {
+  const links = document.querySelectorAll('a[href^="#"]')
+  links.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault()
+      const targetId = this.getAttribute("href").substring(1)
+      const targetElement = document.getElementById(targetId)
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        })
+      }
+    })
+  })
 }
 
 /* ===================================
@@ -478,12 +517,10 @@ function clearCalculator() {
   const display = document.getElementById("calculatorDisplay")
   if (!display) return
 
-  calculator = {
-    display: "0",
-    previousValue: null,
-    operation: null,
-    waitingForOperand: false,
-  }
+  calculator.display = "0"
+  calculator.previousValue = null
+  calculator.operation = null
+  calculator.waitingForOperand = false
 
   display.textContent = calculator.display
 }
@@ -867,13 +904,12 @@ function formatPhone(input) {
   }
 }
 
-// Adiciona formatação automática aos campos de telefone
-document.addEventListener("DOMContentLoaded", () => {
+function setupPhoneFormatting() {
   const phoneInputs = document.querySelectorAll('input[name="phone"]')
   phoneInputs.forEach((input) => {
     input.addEventListener("input", () => formatPhone(input))
   })
-})
+}
 
 /* ===================================
    NOTIFICAÇÕES TOAST
@@ -914,47 +950,6 @@ function hideLoading() {
   const overlay = document.getElementById("loadingOverlay")
   overlay.classList.remove("show")
 }
-
-/* ===================================
-   INICIALIZAÇÃO DE TEMA
-   =================================== */
-
-// Carrega tema salvo do localStorage
-document.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem("theme")
-  if (savedTheme) {
-    document.body.dataset.theme = savedTheme
-    const themeToggle = document.getElementById("themeToggle")
-    const icon = themeToggle?.querySelector("i")
-
-    if (savedTheme === "dark" && icon) {
-      icon.classList.remove("fa-moon")
-      icon.classList.add("fa-sun")
-    }
-  }
-})
-
-/* ===================================
-   NAVEGAÇÃO SUAVE PARA LINKS
-   =================================== */
-
-document.addEventListener("DOMContentLoaded", () => {
-  const links = document.querySelectorAll('a[href^="#"]')
-  links.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      e.preventDefault()
-      const targetId = this.getAttribute("href").substring(1)
-      const targetElement = document.getElementById(targetId)
-
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        })
-      }
-    })
-  })
-})
 
 /* ===================================
    ANIMAÇÕES DE ENTRADA
