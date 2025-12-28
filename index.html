@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+3333<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
@@ -16,7 +16,7 @@
                     <i class="fas fa-code"></i>
                     <span>DevQuiz</span>
                 </div>
-                
+
                 <nav class="nav-desktop">
                     <a href="#quiz">Quiz</a>
                     <a href="#tools">Ferramentas</a>
@@ -25,12 +25,12 @@
                         <i class="fas fa-moon"></i>
                     </button>
                 </nav>
-                
+
                 <button class="menu-toggle" id="menuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
-            
+
             <nav class="nav-mobile" id="navMobile">
                 <a href="#quiz">Quiz</a>
                 <a href="#tools">Ferramentas</a>
@@ -48,7 +48,7 @@
                     <span id="typedText"></span>
                     <span class="cursor">|</span>
                 </p>
-                
+
                 <div class="hero-stats">
                     <div class="stat-item">
                         <div class="stat-number" data-target="10000">0</div>
@@ -63,7 +63,7 @@
                         <div class="stat-label">Satisfação</div>
                     </div>
                 </div>
-                
+
                 <div class="hero-buttons">
                     <button class="btn btn-primary" onclick="scrollToSection('quiz')">
                         <i class="fas fa-play"></i>
@@ -84,7 +84,7 @@
                 <h2><i class="fas fa-brain"></i> Quiz de Programação</h2>
                 <p>Teste seus conhecimentos em desenvolvimento web</p>
             </div>
-            
+
             <div class="quiz-card" id="quizz-container">
                 <div class="quiz-header">
                     <div id="question">
@@ -102,7 +102,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="score-card hide" id="score-container">
                 <div class="score-header">
                     <i class="fas fa-trophy"></i>
@@ -113,7 +113,7 @@
                         <span id="display-score">0%</span>
                     </div>
                     <p>
-                        Você acertou <span id="correct-answers" class="highlight">0</span> 
+                        Você acertou <span id="correct-answers" class="highlight">0</span>
                         de <span id="questions-qty" class="highlight">6</span> perguntas
                     </p>
                     <button class="btn btn-primary" id="restart">
@@ -132,7 +132,7 @@
                 <h2><i class="fas fa-tools"></i> Ferramentas Interativas</h2>
                 <p>Recursos desenvolvidos com JavaScript puro</p>
             </div>
-            
+
             <div class="tools-grid">
                 <!-- CALCULADORA -->
                 <div class="tool-card">
@@ -147,27 +147,27 @@
                             <button class="calc-btn calc-btn-operator" onclick="inputOperation('/')">/</button>
                             <button class="calc-btn calc-btn-operator" onclick="inputOperation('*')">×</button>
                             <button class="calc-btn calc-btn-operator" onclick="inputOperation('-')">-</button>
-                            
+
                             <button class="calc-btn" onclick="inputNumber('7')">7</button>
                             <button class="calc-btn" onclick="inputNumber('8')">8</button>
                             <button class="calc-btn" onclick="inputNumber('9')">9</button>
                             <button class="calc-btn calc-btn-operator calc-btn-plus" onclick="inputOperation('+')">+</button>
-                            
+
                             <button class="calc-btn" onclick="inputNumber('4')">4</button>
                             <button class="calc-btn" onclick="inputNumber('5')">5</button>
                             <button class="calc-btn" onclick="inputNumber('6')">6</button>
-                            
+
                             <button class="calc-btn" onclick="inputNumber('1')">1</button>
                             <button class="calc-btn" onclick="inputNumber('2')">2</button>
                             <button class="calc-btn" onclick="inputNumber('3')">3</button>
                             <button class="calc-btn calc-btn-equals" onclick="performCalculation()">=</button>
-                            
+
                             <button class="calc-btn calc-btn-zero" onclick="inputNumber('0')">0</button>
                             <button class="calc-btn" onclick="inputNumber('.')">.</button>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- SELETOR DE CORES -->
                 <div class="tool-card">
                     <div class="tool-header">
@@ -189,7 +189,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- RELÓGIO E CRONÔMETRO -->
                 <div class="tool-card">
                     <div class="tool-header">
@@ -225,7 +225,7 @@
                 <h2><i class="fas fa-envelope"></i> Entre em Contato</h2>
                 <p>Formulários com validação JavaScript completa</p>
             </div>
-            
+
             <div class="forms-grid">
                 <!-- FORMULÁRIO DE CONTATO -->
                 <div class="form-card">
@@ -240,33 +240,33 @@
                                 <input type="text" id="contactName" name="name" required />
                                 <span class="error-message"></span>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="contactEmail">Email *</label>
                                 <input type="email" id="contactEmail" name="email" required />
                                 <span class="error-message"></span>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="contactPhone">Telefone</label>
                             <input type="tel" id="contactPhone" name="phone" placeholder="(11) 99999-9999" />
                             <span class="error-message"></span>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="contactMessage">Mensagem *</label>
                             <textarea id="contactMessage" name="message" rows="4" required></textarea>
                             <span class="error-message"></span>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary btn-full">
                             <i class="fas fa-paper-plane"></i>
                             Enviar Mensagem
                         </button>
                     </form>
                 </div>
-                
+
                 <!-- FORMULÁRIO DE NEWSLETTER -->
                 <div class="form-card">
                     <div class="form-header">
@@ -279,7 +279,7 @@
                             <input type="email" id="newsletterEmail" name="email" required />
                             <span class="error-message"></span>
                         </div>
-                        
+
                         <div class="form-group">
                             <label>Interesses *</label>
                             <div class="checkbox-grid">
@@ -302,14 +302,14 @@
                             </div>
                             <span class="error-message"></span>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary btn-full">
                             <i class="fas fa-envelope"></i>
                             Inscrever-se
                         </button>
                     </form>
                 </div>
-                
+
                 <!-- FORMULÁRIO DE REGISTRO -->
                 <div class="form-card form-card-wide">
                     <div class="form-header">
@@ -323,28 +323,28 @@
                                 <input type="text" id="registerName" name="name" required />
                                 <span class="error-message"></span>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="registerEmail">Email *</label>
                                 <input type="email" id="registerEmail" name="email" required />
                                 <span class="error-message"></span>
                             </div>
                         </div>
-                        
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="registerUsername">Nome de Usuário *</label>
                                 <input type="text" id="registerUsername" name="username" required />
                                 <span class="error-message"></span>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="registerBirthDate">Data de Nascimento *</label>
                                 <input type="date" id="registerBirthDate" name="birthDate" required />
                                 <span class="error-message"></span>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="registerPassword">Senha *</label>
                             <div class="password-input">
@@ -377,7 +377,7 @@
                             </div>
                             <span class="error-message"></span>
                         </div>
-                        
+
                         <div class="form-group">
                             <label class="checkbox-label">
                                 <input type="checkbox" id="acceptTerms" name="acceptTerms" required />
@@ -385,7 +385,7 @@
                             </label>
                             <span class="error-message"></span>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-primary btn-full">
                             <i class="fas fa-user-plus"></i>
                             Criar Conta
@@ -393,7 +393,7 @@
                     </form>
                 </div>
             </div>
-            
+
             <!-- INFORMAÇÕES DE CONTATO -->
             <div class="contact-info-section">
                 <div class="contact-info-grid">
